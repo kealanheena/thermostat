@@ -7,3 +7,7 @@ function Thermostat(temperature = DEFAULT_TEMPERATURE) {
 Thermostat.prototype.up = function() {
   this.temperature ++;
 };
+
+Thermostat.prototype.down = function() {
+  this.temperature --;
+};
