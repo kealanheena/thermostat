@@ -45,7 +45,24 @@ describe("Thermostat", function() {
         thermostat.up();
       }).toThrowError("Temperature already at maximum");
     });
-    
+
+  });
+
+  it("should not have a max temperature of 25 when power saving mode is off", function() {
+    let thermostat = new Thermostat(25);
+    thermostat.togglePowerSaving();
+
+    expect(function() {
+      thermostat.up();
+    }).not.toThrow();
+  });
+      
+  it("should have a max temperature", function() {
+    let thermostat = new Thermostat(32);
+
+    expect(function() {
+      thermostat.up();
+    }).toThrowError("Temperature already at maximum");
   });
 
 });
