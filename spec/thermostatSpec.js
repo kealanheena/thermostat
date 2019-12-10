@@ -74,4 +74,26 @@ describe("Thermostat", function() {
     expect(thermostat.temperature).toEqual(20);
   });
 
+  describe("#usage", function() {
+
+    it("should return low-usage when temperature is below 18", function() {
+      let thermostat = new Thermostat(17);
+
+      expect(thermostat.usage()).toEqual("low-usage");
+    });
+
+    it("should return medium-usage when temperature is above 17 and below 25", function() {
+      let thermostat = new Thermostat(18);
+
+      expect(thermostat.usage()).toEqual("medium-usage");
+    });
+
+    it("should return high-usage when temperature is 25 or above", function() {
+      let thermostat = new Thermostat(25);
+
+      expect(thermostat.usage()).toEqual("high-usage");
+    });
+
+  });
+
 });
