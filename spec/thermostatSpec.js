@@ -65,4 +65,13 @@ describe("Thermostat", function() {
     }).toThrowError("Temperature already at maximum");
   });
 
+  it("should be able to reset the temperature", function() {
+    let thermostat = new Thermostat(10);
+
+    expect(thermostat.temperature).not.toEqual(20);
+
+    thermostat.reset();
+    expect(thermostat.temperature).toEqual(20);
+  });
+
 });
