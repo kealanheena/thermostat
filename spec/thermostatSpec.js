@@ -20,14 +20,18 @@ describe("Thermostat", function() {
   });
 
   it("should throw error if you try to drop temperature below zero", function() {
-    for(i = 0; i < 10; i++) {
-      thermostat.down();
-    }
+    let thermostat = new Thermostat(10)
     
     expect(function() {
       thermostat.down();
     }).toThrowError("Temperature too low");
-  
+  });
+
+  describe("#togglePowerSaving", function() {
+    it("should turn power saving off", function() {
+      thermostat.togglePowerSaving()
+      expect(thermostat.isPowerSaving).toEqual(false);
+    });
   });
 
 });
