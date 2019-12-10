@@ -19,4 +19,15 @@ describe("Thermostat", function() {
     expect(thermostat.temperature).toEqual(19);
   });
 
+  it("should throw error if you try to drop temperature below zero", function() {
+    for(i = 0; i < 10; i++) {
+      thermostat.down();
+    }
+    
+    expect(function() {
+      thermostat.down();
+    }).toThrowError("Temperature too low");
+  
+  });
+
 });
