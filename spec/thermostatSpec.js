@@ -20,18 +20,32 @@ describe("Thermostat", function() {
   });
 
   it("should throw error if you try to drop temperature below zero", function() {
-    let thermostat = new Thermostat(10)
+    let thermostat = new Thermostat(10);
     
     expect(function() {
       thermostat.down();
-    }).toThrowError("Temperature too low");
+    }).toThrowError("Temperature already at minimum");
   });
 
-  describe("#togglePowerSaving", function() {
+  describe("In 'Power Saving Mode'", function() {
+
+    it("should have power saving on by default", function() {
+      expect(thermostat.isPowerSaving).toEqual(true);
+    });
+
     it("should turn power saving off", function() {
-      thermostat.togglePowerSaving()
+      thermostat.togglePowerSaving();
       expect(thermostat.isPowerSaving).toEqual(false);
     });
+
+    it("should have a max temperature", function() {
+      let thermostat = new Thermostat(25);
+
+      expect(function() {
+        thermostat.up();
+      }).toThrowError("Temperature already at maximum");
+    });
+    
   });
 
 });
