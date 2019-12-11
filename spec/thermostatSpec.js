@@ -19,9 +19,9 @@ describe("Thermostat", function() {
     expect(thermostat.temperature).toEqual(19);
   });
 
-  it("should throw error if you try to drop temperature below zero", function() {
+  it("should throw error if you try to drop temperature below ten", function() {
     let thermostat = new Thermostat(10);
-    
+
     expect(function() {
       thermostat.down();
     }).toThrowError("Temperature already at minimum");
@@ -56,7 +56,7 @@ describe("Thermostat", function() {
       thermostat.up();
     }).not.toThrow();
   });
-      
+
   it("should have a max temperature", function() {
     let thermostat = new Thermostat(32);
 

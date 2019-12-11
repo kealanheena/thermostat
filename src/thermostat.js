@@ -1,3 +1,5 @@
+
+
 const DEFAULT_TEMPERATURE = 20;
 const MINIMUM_TEMPERATURE = 10;
 
