@@ -3,21 +3,23 @@ $( document ).ready(function() {
   var thermostat = new Thermostat();
 
   $( "#increase" ).click(function() {
+    let current_temp = $("#thermostatWhite").height() / $(".row").height()
     thermostat.up();
     updateTemperature();
+    $("#thermostatWhite").height( `${Math.round((current_temp) * 100) - 3}%`);
     });
 
   $( "#decrease" ).click(function() {
+    let current_temp = $("#thermostatWhite").height() / $(".row").height()
     thermostat.down();
     updateTemperature();
-    
-    console.log(Math.round((($("#thermostat").height() / $(".row").height()) * 100)))
-    $("#thermostat").height( `${Math.round(($("#thermostat").height() / $(".row").height()) * 100)+2}%`);
+    $("#thermostatWhite").height( `${Math.round((current_temp) * 100) + 3}%`);
     });
 
   $( "#reset" ).click(function() {
     thermostat.reset();
     updateTemperature();
+    $("#thermostatWhite").height("60%")
     });
 
   $( "#PSMButton" ).click(function() {
@@ -28,7 +30,10 @@ $( document ).ready(function() {
       $(this).text('off');
     } else  {
       $(this).text('on');
-      if (thermostat.temperature > 25) thermostat.reset(25);
+      if (thermostat.temperature > 25){
+        thermostat.reset(25);
+        $("#thermostatWhite").height("42%")
+      }
       updateTemperature()
     }
   });

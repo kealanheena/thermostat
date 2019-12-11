@@ -23,18 +23,20 @@ div {
   margin: 5px
 }
 
-.thermostatWhite {
+.thermostat {
   background-color: red;
   height: 100%;
   width: 30%;
   border-radius: 10px;
   position: absolute;
+  border: 3px solid black;
 }
 
-#thermostat {
+#thermostatWhite {
   background-color: white;
   height: 60%;
   width: 30%;
   border-radius: 10px 10px 0 0;
   position: absolute;
+  border: 3px solid black;
 }
