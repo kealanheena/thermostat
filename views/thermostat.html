@@ -3,18 +3,24 @@
   <head>
     <meta charset="utf-8">
     <title>thermostat</title>
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-    <button id='increase'>increase</button>
-    <button id='decrease'>decrease</button>
-    <button id='reset'>reset</button>
-    <div>
-      <p id='temperature'>
-        20°C
-      </p>
+    <div class="container">
+      <button class="btn btn-primary"id='increase'>increase</button>
+      <button class="btn btn-primary"id='decrease'>decrease</button>
+      <button class="btn btn-primary"id='reset'>reset</button>
+      <div class="jumbotron">
+        <p id='temperature'>
+          20°C
+        </p>
+      </div>
+      <button id='PSMButton' class='btn btn-primary'' >on</button>
     </div>
-    <button id='PSMbutton'>on</button>
-
     <script src="../src/thermostat.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.js" integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI=" crossorigin="anonymous"></script>
+    <script src="../src/thermostatDOM.js"></script>
+
   </body>
 </html>
