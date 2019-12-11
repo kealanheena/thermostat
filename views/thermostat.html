@@ -3,21 +3,33 @@
   <head>
     <meta charset="utf-8">
     <title>thermostat</title>
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/main.css">
   </head>
   <body>
     <div class="container">
-      <button class="btn btn-primary"id='increase'>increase</button>
-      <button class="btn btn-primary"id='decrease'>decrease</button>
-      <button class="btn btn-primary"id='reset'>reset</button>
       <div class="jumbotron">
-        <p id='temperature'>
-          20°C
-        </p>
+          <div class="container">
+              <div class="row">
+                <div class="col-sm-3">
+                    <button class="btn btn-success"id='increase'>increase</button>
+                    <button class="btn btn-danger"id='decrease'>decrease</button>
+                    <button class="btn btn-info"id='reset'>reset</button>
+                    <label for="PSMButton" class="powerSaver">Power Saver Mode</label>
+                    <button id='PSMButton' class='btn btn-dark'>on</button>
+                </div>
+                <div class="col-sm-7">
+                  <p id='temperature'>20°C</p>
+                </div>
+                <div class="col-sm-2">
+                  <div class="thermostatWhite"></div>
+                  <div id="thermostat"></div>
+                </div>
+              </div>
+            </div>
       </div>
-      <button id='PSMButton' class='btn btn-primary'>on</button>
     </div>
+
     <script src="../src/thermostat.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.js" integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI=" crossorigin="anonymous"></script>
     <script src="../src/thermostatDOM.js"></script>

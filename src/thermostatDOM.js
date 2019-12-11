@@ -10,6 +10,9 @@ $( document ).ready(function() {
   $( "#decrease" ).click(function() {
     thermostat.down();
     updateTemperature();
+    
+    console.log(Math.round((($("#thermostat").height() / $(".row").height()) * 100)))
+    $("#thermostat").height( `${Math.round(($("#thermostat").height() / $(".row").height()) * 100)+2}%`);
     });
 
   $( "#reset" ).click(function() {
@@ -18,8 +21,8 @@ $( document ).ready(function() {
     });
 
   $( "#PSMButton" ).click(function() {
-    $(this).toggleClass("btn-primary");
-    $(this).toggleClass("btn-outline-primary");
+    $(this).toggleClass("btn-dark");
+    $(this).toggleClass("btn-outline-dark");
     thermostat.togglePowerSaving();
     if($('#PSMButton').text() == "on"){
       $(this).text('off');
