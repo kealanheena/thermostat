@@ -22,7 +22,17 @@ Thermostat.prototype.down = function() {
   this.temperature --;
 };
 
-Thermostat.prototype.togglePowerSaving = function() {
+Thermostat.prototype.togglePowerSaving = function(height, text) {
+  if( this.isPowerSaving == false && this.temperature > 25 ){
+    text = $('#PSMButton').text("on");
+    this.reset(this.maximumTemperature());
+    this.temperature == this.maximumTemperature();
+    height = $("#thermostatWhite").height("42%")
+  } else if ( this.isPowerSaving == false ) {
+    text = $('#PSMButton').text("on");
+  } else {
+    text = $('#PSMButton').text("off");
+  };
   this.isPowerSaving = !this.isPowerSaving;
 };
 

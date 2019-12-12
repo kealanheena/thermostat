@@ -25,17 +25,8 @@ $( document ).ready(function() {
   $( "#PSMButton" ).click(function() {
     $(this).toggleClass("btn-dark");
     $(this).toggleClass("btn-outline-dark");
-    thermostat.togglePowerSaving();
-    if($('#PSMButton').text() == "on"){
-      $(this).text('off');
-    } else  {
-      $(this).text('on');
-      if (thermostat.temperature > 25){
-        thermostat.reset(25);
-        $("#thermostatWhite").height("42%")
-      }
-      updateTemperature()
-    }
+    thermostat.togglePowerSaving($("#thermostatWhite").height(), $('#PSMButton').text());
+    updateTemperature();
   });
 
   function updateTemperature(){
